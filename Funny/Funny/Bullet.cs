@@ -14,32 +14,57 @@ namespace Funny
         public Vector2 position;
         public Vector2 velocity;
         public Texture2D texture;
+        public Rectangle hitTest;
         public float speed;
-        Player player;
 
         public Bullet()
         {
-            texture = Global.content.Load<Texture2D>("bullet");
             Init();
         }
 
         public void Init()
         {
-            player = new Player();
-            position.X = player.position.X;
-            position.Y = player.position.Y - texture.Height;
+            texture = Global.content.Load<Texture2D>("bullet");
+            speed = 3;
+            hitTest = new Rectangle((int)position.X, (int)position.Y, texture.Width, texture.Height);
+            Reset();
         }
 
         public void Update()
         {
+            if(isFired)
+            {
+                if(position.Y < 0)
+                {
+                    Reset();
+                }
+
+                position.Y += velocity.Y;
+            }
         }
 
+        public void Reset()
+        {
+            isFired = false;
+            position.X= - 1000;
+            velocity.Y = 0;
+        }
+        
+
         public void Draw()
-        {            
+        {
+            Global.spriteBatch.Draw(texture, position, Color.White);
         }
 
         public void Fire(Vector2 startPosition)
-        {            
+        {
+            if(!isFired)
+            {
+                isFired = true;
+                this.position.X = startPosition.X;
+                this.position.Y = startPosition.Y;
+                velocity.Y = -speed;
+            }            
         }
 
 //        public Boolean OverlapsInvader(Invader anInvader)
