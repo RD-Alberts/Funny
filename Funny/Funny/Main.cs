@@ -14,6 +14,8 @@ namespace Funny
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
         Texture2D background, scanlines;
+        int nInvaders = 16;
+        List<Invader> invadersList = new List<Invader>();
 
         Player thePlayer;
         Bullet theBullet;
@@ -28,6 +30,16 @@ namespace Funny
             graphics.PreferredBackBufferWidth = 800;
 
             Content.RootDirectory = "Content";
+        }
+
+        public void CallInvader()
+        {
+            for(int iInvader = 0; iInvader < nInvaders; iInvader++)
+            {
+                Invader newInvader = new Invader();
+                newInvader.Init();
+                invadersList.Add(newInvader);
+            }
         }
         
         protected override void Initialize()
@@ -45,6 +57,7 @@ namespace Funny
             Global.spriteBatch = spriteBatch;
             background = Content.Load<Texture2D>("background");
             scanlines = Content.Load<Texture2D>("scanlines");
+            CallInvader();
             base.Initialize();
         }
         
@@ -57,7 +70,13 @@ namespace Funny
             thePlayer.Update();
             theBullet.Update();
 
+            Console.WriteLine(invadersList.Count);
             base.Update(gameTime);
+        }
+
+        public void Collision()
+        {
+            
         }
         
         protected override void Draw(GameTime gameTime)
@@ -70,7 +89,13 @@ namespace Funny
             thePlayer.Draw();
             theBullet.Draw();
 
-            spriteBatch.Draw(scanlines, Global.screenRect, Color.White);
+            foreach(Invader invader in invadersList)
+            {
+                invader.Draw();
+                spriteBatch.Draw(scanlines, Global.screenRect, Color.White);
+            }
+
+           
             spriteBatch.End();
 
             base.Draw(gameTime);
