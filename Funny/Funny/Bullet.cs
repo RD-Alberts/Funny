@@ -5,6 +5,7 @@ using System.Text;
 
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Funny.Enemy;
 
 namespace Funny
 {
@@ -15,6 +16,8 @@ namespace Funny
         public Vector2 velocity;
         public Texture2D texture;
         public float speed;
+        public Rectangle hitTest;
+        public int damage;
 
         public Bullet()
         {
@@ -25,6 +28,8 @@ namespace Funny
         {
             texture = Global.content.Load<Texture2D>("bullet");
             speed = 3;
+            damage = 1;
+            hitTest = new Rectangle((int)position.X, (int)position.Y, texture.Width, texture.Height);
             Reset();
         }
 
@@ -47,7 +52,6 @@ namespace Funny
             position.X= - 1000;
             velocity.Y = 0;
         }
-        
 
         public void Draw()
         {
@@ -74,6 +78,20 @@ namespace Funny
 
             if (this.position.X > anInvader.position.X + w1 || this.position.X + w0 < anInvader.position.X ||
                 this.position.Y > anInvader.position.Y + h1 || this.position.Y + h0 < anInvader.position.Y)
+                return false;
+            else
+                return true;
+        }
+
+        public Boolean OverlapsPatrouille(Patrouille aPatrouille)
+        {
+            int w0 = this.texture.Width,
+            h0 = this.texture.Width,
+            w1 = aPatrouille.texture.Width,
+            h1 = aPatrouille.texture.Height;
+
+            if (this.position.X > aPatrouille.position.X + w1 || this.position.X + w0 < aPatrouille.position.X ||
+                this.position.Y > aPatrouille.position.Y + h1 || this.position.Y + h0 < aPatrouille.position.Y)
                 return false;
             else
                 return true;

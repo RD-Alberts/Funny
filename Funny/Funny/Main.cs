@@ -6,6 +6,7 @@ using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.GamerServices;
+using Funny.Enemy;
 
 namespace Funny
 {
@@ -19,8 +20,7 @@ namespace Funny
 
         Player thePlayer;
         Bullet theBullet;
-
-        //TODO: Add multiple invaders here
+        Patrouille thePatrouille;
 
         public Main()
             : base()
@@ -51,6 +51,7 @@ namespace Funny
             // Create and Initialize game objects
             thePlayer = new Player();
             theBullet = new Bullet();
+            thePatrouille = new Patrouille();
 
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
@@ -71,6 +72,7 @@ namespace Funny
             // Update the game objects
             thePlayer.Update();
             theBullet.Update();
+            thePatrouille.Update();
             foreach (Invader invader in invadersList)
             {
                 invader.Update();
@@ -80,6 +82,14 @@ namespace Funny
                     theBullet.Reset();
                     invader.Reset();
                 }
+            }
+
+            if (theBullet.OverlapsPatrouille(thePatrouille))
+            {
+                theBullet.Reset();
+                thePatrouille.hp -= theBullet.damage;
+                if(thePatrouille.hp <= 0)
+                    thePatrouille.Reset();
             }
             base.Update(gameTime);
         }
@@ -93,7 +103,7 @@ namespace Funny
             // Draw the game objects
             thePlayer.Draw();
             theBullet.Draw();
-
+            thePatrouille.Draw();
             foreach(Invader invader in invadersList)
             {
                 invader.Draw();
