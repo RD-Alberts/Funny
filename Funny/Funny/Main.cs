@@ -58,6 +58,7 @@ namespace Funny
             background = Content.Load<Texture2D>("background");
             scanlines = Content.Load<Texture2D>("scanlines");
             CallInvader();
+            
             base.Initialize();
         }
         
@@ -66,17 +67,17 @@ namespace Funny
             // Pass keyboard state to Global so we can use it everywhere
             Global.keys = Keyboard.GetState();
             if (Global.keys.IsKeyDown(Keys.Space)) theBullet.Fire(thePlayer.position);
+
             // Update the game objects
             thePlayer.Update();
             theBullet.Update();
+            foreach (Invader invader in invadersList)
+            {
+                invader.Update();
+            }
 
             Console.WriteLine(invadersList.Count);
             base.Update(gameTime);
-        }
-
-        public void Collision()
-        {
-            
         }
         
         protected override void Draw(GameTime gameTime)
@@ -95,7 +96,6 @@ namespace Funny
                 spriteBatch.Draw(scanlines, Global.screenRect, Color.White);
             }
 
-           
             spriteBatch.End();
 
             base.Draw(gameTime);

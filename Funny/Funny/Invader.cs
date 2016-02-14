@@ -10,10 +10,9 @@ namespace Funny
 {
     class Invader
     {
-        Vector2 position;
-        Vector2 velocity;
-        Texture2D texture;
-        Random random;
+        public Vector2 position;
+        public Vector2 velocity;
+        public Texture2D texture;
 
         public Invader()
         {
@@ -22,8 +21,8 @@ namespace Funny
 
         public void Reset()
         {
-            position.X = random.Next(100, Global.width - 100);
-            position.Y = random.Next(0, Global.height - 300);
+            position.X = Global.Random(100, Global.width - 100);
+            position.Y = Global.Random(0, Global.height - 300);
 
             velocity.X = 3;
             velocity.Y = 10;
@@ -32,7 +31,6 @@ namespace Funny
         public void Init()
         {
             texture = Global.content.Load<Texture2D>("red_invader");
-            random = new Random();
             Reset();
         }
 

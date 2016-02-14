@@ -14,7 +14,6 @@ namespace Funny
         public Vector2 position;
         public Vector2 velocity;
         public Texture2D texture;
-        public Rectangle hitTest;
         public float speed;
 
         public Bullet()
@@ -26,7 +25,6 @@ namespace Funny
         {
             texture = Global.content.Load<Texture2D>("bullet");
             speed = 3;
-            hitTest = new Rectangle((int)position.X, (int)position.Y, texture.Width, texture.Height);
             Reset();
         }
 
@@ -67,9 +65,10 @@ namespace Funny
             }            
         }
 
-//        public Boolean OverlapsInvader(Invader anInvader)
-//        {
-//        }
+       /*public Boolean OverlapsInvader(Invader anInvader)
+        {
+
+        }*/
 
     }
 }
