@@ -65,10 +65,19 @@ namespace Funny
             }            
         }
 
-       /*public Boolean OverlapsInvader(Invader anInvader)
+       public Boolean OverlapsInvader(Invader anInvader)
         {
+            int w0 = this.texture.Width,
+            h0 = this.texture.Width,
+            w1 = anInvader.texture.Width,
+            h1 = anInvader.texture.Height;
 
-        }*/
+            if (this.position.X > anInvader.position.X + w1 || this.position.X + w0 < anInvader.position.X ||
+                this.position.Y > anInvader.position.Y + h1 || this.position.Y + h0 < anInvader.position.Y)
+                return false;
+            else
+                return true;
+        }
 
     }
 }

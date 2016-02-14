@@ -74,9 +74,13 @@ namespace Funny
             foreach (Invader invader in invadersList)
             {
                 invader.Update();
-            }
 
-            Console.WriteLine(invadersList.Count);
+                if(theBullet.OverlapsInvader(invader))
+                {
+                    theBullet.Reset();
+                    invader.Reset();
+                }
+            }
             base.Update(gameTime);
         }
         
