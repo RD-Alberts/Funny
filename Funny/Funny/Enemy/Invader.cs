@@ -13,6 +13,7 @@ namespace Funny
         public Vector2 position;
         public Vector2 velocity;
         public Texture2D texture;
+        public int randomEnemy;
 
         public Invader()
         {
@@ -24,13 +25,30 @@ namespace Funny
             position.X = Global.Random(100, Global.width - 100);
             position.Y = Global.Random(0, Global.height - 300);
 
+            randomEnemy = Global.Random(0, 4);
+
             velocity.X = 3;
             velocity.Y = 10;
         }
 
         public void Init()
         {
-            texture = Global.content.Load<Texture2D>("red_invader");
+            switch (randomEnemy){
+
+                case (0):
+                    texture = Global.content.Load<Texture2D>("red_invader");
+                    break;
+                case (1):
+                    texture = Global.content.Load<Texture2D>("blue_invader");
+                    break;
+                case (2):
+                    texture = Global.content.Load<Texture2D>("green_invader");
+                    break;
+                case (3):
+                    texture = Global.content.Load<Texture2D>("yellow_invader");
+                    break;
+            }
+             
             Reset();
         }
 
