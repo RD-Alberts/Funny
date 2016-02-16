@@ -16,7 +16,6 @@ namespace Funny
         public Vector2 velocity;
         public Texture2D texture;
         public float speed;
-        public Rectangle hitTest;
         public int damage;
 
         public Bullet()
@@ -29,7 +28,6 @@ namespace Funny
             texture = Global.content.Load<Texture2D>("bullet");
             speed = 3;
             damage = 1;
-            hitTest = new Rectangle((int)position.X, (int)position.Y, texture.Width, texture.Height);
             Reset();
         }
 

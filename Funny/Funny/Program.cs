@@ -10,7 +10,7 @@ namespace Funny
         /// </summary>
         static void Main(string[] args)
         {
-            using (Main game = new Main())
+            using (Game1 game = new Game1())
             {
                 game.Run();
             }

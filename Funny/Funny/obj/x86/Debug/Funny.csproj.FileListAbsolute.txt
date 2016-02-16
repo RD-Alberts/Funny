@@ -24,3 +24,29 @@ C:\Users\Rachel\documents\visual studio 2015\Projects\Funny\Funny\Funny\bin\x86\
 C:\Users\Rachel\documents\visual studio 2015\Projects\Funny\Funny\Funny\bin\x86\Debug\Content\shield.xnb
 C:\Users\Rachel\documents\visual studio 2015\Projects\Funny\Funny\Funny\bin\x86\Debug\Content\ship.xnb
 C:\Users\Rachel\documents\visual studio 2015\Projects\Funny\Funny\Funny\bin\x86\Debug\Content\yellow_invader.xnb
+C:\Users\Rachel\Documents\Funny\Funny\Funny\bin\x86\Debug\Content\background.xnb
+C:\Users\Rachel\Documents\Funny\Funny\Funny\bin\x86\Debug\Content\blue_invader.xnb
+C:\Users\Rachel\Documents\Funny\Funny\Funny\bin\x86\Debug\Content\bullet.xnb
+C:\Users\Rachel\Documents\Funny\Funny\Funny\bin\x86\Debug\Content\enemy_ship.xnb
+C:\Users\Rachel\Documents\Funny\Funny\Funny\bin\x86\Debug\Content\green_invader.xnb
+C:\Users\Rachel\Documents\Funny\Funny\Funny\bin\x86\Debug\Content\red_invader.xnb
+C:\Users\Rachel\Documents\Funny\Funny\Funny\bin\x86\Debug\Content\scanlines.xnb
+C:\Users\Rachel\Documents\Funny\Funny\Funny\bin\x86\Debug\Content\shield.xnb
+C:\Users\Rachel\Documents\Funny\Funny\Funny\bin\x86\Debug\Content\ship.xnb
+C:\Users\Rachel\Documents\Funny\Funny\Funny\bin\x86\Debug\Content\yellow_invader.xnb
+C:\Users\Rachel\Documents\Funny\Funny\Funny\bin\x86\Debug\Funny.exe
+C:\Users\Rachel\Documents\Funny\Funny\Funny\bin\x86\Debug\Funny.pdb
+C:\Users\Rachel\Documents\Funny\Funny\Funny\bin\x86\Debug\Microsoft.Xna.Framework.dll
+C:\Users\Rachel\Documents\Funny\Funny\Funny\bin\x86\Debug\Microsoft.Xna.Framework.Game.dll
+C:\Users\Rachel\Documents\Funny\Funny\Funny\bin\x86\Debug\Microsoft.Xna.Framework.GamerServices.dll
+C:\Users\Rachel\Documents\Funny\Funny\Funny\bin\x86\Debug\Microsoft.Xna.Framework.Graphics.dll
+C:\Users\Rachel\Documents\Funny\Funny\Funny\bin\x86\Debug\Microsoft.Xna.Framework.Input.Touch.dll
+C:\Users\Rachel\Documents\Funny\Funny\Funny\bin\x86\Debug\Microsoft.Xna.Framework.xml
+C:\Users\Rachel\Documents\Funny\Funny\Funny\bin\x86\Debug\Microsoft.Xna.Framework.Game.xml
+C:\Users\Rachel\Documents\Funny\Funny\Funny\bin\x86\Debug\Microsoft.Xna.Framework.Graphics.xml
+C:\Users\Rachel\Documents\Funny\Funny\Funny\bin\x86\Debug\Microsoft.Xna.Framework.GamerServices.xml
+C:\Users\Rachel\Documents\Funny\Funny\Funny\bin\x86\Debug\Microsoft.Xna.Framework.Input.Touch.xml
+C:\Users\Rachel\Documents\Funny\Funny\Funny\obj\x86\Debug\Funny.csprojResolveAssemblyReference.cache
+C:\Users\Rachel\Documents\Funny\Funny\Funny\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+C:\Users\Rachel\Documents\Funny\Funny\Funny\obj\x86\Debug\Funny.exe
+C:\Users\Rachel\Documents\Funny\Funny\Funny\obj\x86\Debug\Funny.pdb

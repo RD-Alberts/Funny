@@ -10,19 +10,26 @@ using Funny.Enemy;
 
 namespace Funny
 {
-    public class Main : Game
+    public class Game1 : Game
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
         Texture2D background, scanlines;
+
+        //invader variables
         int nInvaders = 16;
         List<Invader> invadersList = new List<Invader>();
 
+        //shield variables
+        List<Shield> shieldList = new List<Shield>();
+        int nShield = 4;
+
+        //class variables
         Player thePlayer;
         Bullet theBullet;
         Patrouille thePatrouille;
 
-        public Main()
+        public Game1()
             : base()
         {
             graphics = new GraphicsDeviceManager(this);
@@ -41,7 +48,22 @@ namespace Funny
                 invadersList.Add(newInvader);
             }
         }
-        
+
+        public void CallShield()
+        {
+            for(int iShield = 0; iShield < nShield; iShield ++)
+            {
+                Shield newShield = new Shield();
+                newShield.Init();
+                shieldList.Add(newShield);
+            }
+
+            shieldList[0].position.X = 100;
+            shieldList[1].position.X = shieldList[0].position.X + 100 + shieldList[0].texture.Width;
+            shieldList[2].position.X = shieldList[1].position.X + 100 + shieldList[1].texture.Width;
+            shieldList[3].position.X = shieldList[2].position.X + 100 + shieldList[2].texture.Width;
+        }
+
         protected override void Initialize()
         {
             // Pass often referenced variables to Global
@@ -59,7 +81,8 @@ namespace Funny
             background = Content.Load<Texture2D>("background");
             scanlines = Content.Load<Texture2D>("scanlines");
             CallInvader();
-            
+            CallShield();
+
             base.Initialize();
         }
         
@@ -83,6 +106,17 @@ namespace Funny
                     invader.Reset();
                 }
             }
+            
+
+            for (int i = 0; i < shieldList.Count; i++)
+            {
+                if (shieldList[i].OverlapsBullet(theBullet))
+                {
+                    shieldList[i].isVisible = false;
+                    theBullet.Reset();
+                    RemoveShield();
+                }
+            }
 
             if (theBullet.OverlapsPatrouille(thePatrouille))
             {
@@ -93,6 +127,20 @@ namespace Funny
             }
             base.Update(gameTime);
         }
+
+        public void RemoveShield()
+        {
+            //if any of the asteroids in the list are destroyed (or are invisible) then remove them from the list this is for enemy 1
+            for (int i = 0; i < shieldList.Count; i++)
+            {
+                if (!shieldList[i].isVisible)
+                {
+                    shieldList.RemoveAt(i);
+                    i--;
+                }
+            }
+        }
+
         
         protected override void Draw(GameTime gameTime)
         {
@@ -108,6 +156,11 @@ namespace Funny
             {
                 invader.Draw();
                 spriteBatch.Draw(scanlines, Global.screenRect, Color.White);
+            }
+
+            foreach(Shield shield in shieldList)
+            {
+                shield.Draw();
             }
 
             spriteBatch.End();

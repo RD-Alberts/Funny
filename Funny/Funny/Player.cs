@@ -14,12 +14,13 @@ namespace Funny
       
         public Player()
         {
-            texture = Global.content.Load<Texture2D>("ship");
             Init();       
         }
 
         public void Init()
         {
+            texture = Global.content.Load<Texture2D>("ship");
+
             position.X = Global.width / 2; // horizontal center on screen
             position.Y = Global.height - texture.Height; // bottom of screen
         }
